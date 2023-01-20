@@ -23,7 +23,7 @@ ul{
 --text-color: rgba(255, 255, 255, 1);
 --secondary-bgc: rgba(244, 244, 253, 1);
 --fotter-text: rgba(231, 233, 252, 1);
-    
+--animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 
 }
@@ -123,9 +123,49 @@ line-height: 1.5;
 letter-spacing: 0.02em;
 padding-top: 24px;
 padding-bottom: 24px;
+position: relative;
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.navigate-item:hover:after,.navigate-item:focus:after{
+  transform: scaleX(1);
+  
+}
+
+.navigate-item::after{
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 100%;
+  display: block;
+  background-color:var(--seccondary-logo-color);
+  left: 0;
+  bottom: 0;
+  border-radius: 2px;
+  
+transform: scaleX(0);
+
+transition: transform 250ms var(--animation-timing-function);
 
 
+}
 
+.selected-nav{color: var(--seccondary-logo-color);
+
+}
+
+.selected-nav::after{
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 100%;
+  display: block;
+  background-color:var(--seccondary-logo-color);
+  left: 0;
+  bottom: 0;
+  border-radius: 2px;
+  transform: scaleX(1);
 }
 
  .navigate-item:hover,
@@ -144,6 +184,7 @@ letter-spacing: 0.02em;
 margin-left: 40px;
 padding-top: 24px;
 padding-bottom: 24px;
+transition: color 250ms var(--animation-timing-function);
 
  }
  .head-link:hover,
@@ -196,6 +237,7 @@ cursor: pointer;
 padding: 16px 32px;
 border-radius: 4px;
 border: none;
+transition: background-color 250ms var(--animation-timing-function),box-shadow 250ms var(--animation-timing-function) ;
  }
  
  .hero-button:hover,.hero-button:focus{
@@ -312,6 +354,7 @@ margin-right: 24px;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  transition: background-color 250ms var(--animation-timing-function);
  }
 
  .team-icon-box:hover,.team-icon-box:focus{
@@ -437,6 +480,7 @@ margin-bottom: 72px;
   border: 1px solid #8E8F99;
 border-radius: 4px;
 padding: 16px 32px;
+transition: fill 250ms var(--animation-timing-function),border 250ms var(--animation-timing-function);
 
  }
 
@@ -488,6 +532,7 @@ margin-bottom: 16px;
   width: 40px;
   height: 40px;
   margin-right: 16px;
+  transition: background-color 250ms var(--animation-timing-function);
  }
 
  .footer-icon-box:hover,.footer-icon-box:focus{
@@ -534,7 +579,39 @@ letter-spacing: 0.02em;
 width: 264px;
 
 
+
  }
+
+/* Модалка */
+
+
+
+ .backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  
+  top: 0;
+  left: 0;
+  background-color: rgba(46, 47, 66, 0.4);
+  
+ }
+
+ .modal{
+  position: absolute;
+  background-color: #fff;
+  width: 408px;
+  height: 576px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+ }
+ .is-hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+
 
  /*----------------- Сторінка партфоліо----------------- */
 
@@ -577,6 +654,8 @@ line-height: 1.5;
     padding: 12px 24px;
     border: 1px solid #E7E9FC;
 border-radius: 4px;
+transition: color 250ms var(--animation-timing-function),background-color 250ms var(--animation-timing-function), border 250ms var(--animation-timing-function),
+box-shadow 250ms var(--animation-timing-function)  ;
 
  }
  .portfilio-btn:hover,
@@ -624,6 +703,7 @@ border-radius: 4px;
  margin-left: 24px;
  margin-bottom: 48px;
  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+ transition: box-shadow 250ms var(--animation-timing-function);
  
 
  }
@@ -659,3 +739,36 @@ letter-spacing: 0.02em;
 
  }
 
+ .overlay{
+  position: relative;
+  overflow: hidden;
+ }
+
+ .card:hover .overlay-hover{
+  transform: translateY(0%);
+ }
+
+
+ .overlay-hover{
+  position: absolute;
+  top: 0;
+  background-color: var(--seccondary-logo-color);
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms var(--animation-timing-function);
+
+
+ }
+
+ .overlay-text{
+  color: var(--text-color);
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 16px;
+line-height: 1.5;
+
+letter-spacing: 0.02em;
+  
+ }
