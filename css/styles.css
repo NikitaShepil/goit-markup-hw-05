@@ -594,6 +594,7 @@ width: 264px;
   top: 0;
   left: 0;
   background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms var(--animation-timing-function);
   
  }
 
@@ -610,7 +611,34 @@ width: 264px;
  .is-hidden{
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
+  
 }
+
+.modal-btn{
+  position: absolute;
+  display: flex;
+  background-color:#E7E9FC;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  top: 32px;
+  right: 32px;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.modal-btn-cross{
+  width: 8px;
+
+ 
+  
+}
+
+
 
 
  /*----------------- Сторінка партфоліо----------------- */
